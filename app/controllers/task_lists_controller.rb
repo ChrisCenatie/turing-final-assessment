@@ -32,6 +32,12 @@ class TaskListsController < ApplicationController
     end
   end
 
+  def destroy
+    task_list = current_user.task_lists.where(id: params[:id]).first
+    task_list.destroy if task_list
+    redirect_to task_lists_path
+  end
+
   private
 
     def task_list_params

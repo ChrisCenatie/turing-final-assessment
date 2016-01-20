@@ -32,4 +32,7 @@
   <span class="btn btn-default btn-sm">
     <%= link_to "Edit Task List", task_list_path(task_list), style: "color:white;"%>
   </span>
+  <span class="btn btn-default btn-sm">
+    <%= link_to "Delete Task List", task_list_path(task_list), method: "DELETE", style: "color:white;"%>
+  </span>
 <% end %>
