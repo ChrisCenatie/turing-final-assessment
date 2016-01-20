@@ -1,3 +1,3 @@
 == README
 
-This is the final assessment for (Turing School of Software)[https://gist.github.com/stevekinney/431a2d834b00544067cb]. It's been a fun ride :)
+This is the final assessment for( Turing School of Software)[https://gist.github.com/stevekinney/431a2d834b00544067cb]. It's been a fun ride :)
