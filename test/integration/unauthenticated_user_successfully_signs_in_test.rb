@@ -10,7 +10,6 @@ class UnauthenticatedUserLogsInTest < ActionDispatch::IntegrationTest
 
     fill_in "Email", with: user.email
     fill_in "Password", with: "password"
-    # fill_in "Confirmation", with: "password"
     click_button "Login"
 
     assert_equal task_lists_path, current_path

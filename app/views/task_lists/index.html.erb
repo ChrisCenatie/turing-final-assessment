@@ -1,0 +1,33 @@
+<% if flash[:notice] %>
+  <div class="notice">
+    <% flash[:notice].each do |message| %>
+      <%= message %>
+    <% end %>
+  </div>
+<% end %>
+
+<h2>Add A New Task List</h2>
+<% if flash[:errors] %>
+  <div class="errors">
+    <% flash[:errors].each do |message| %>
+      <%= message %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= form_for :task_list, url: '/task_lists' do |f| %>
+      <%= f.label :title %>:
+      <%= f.text_field :title %><br />
+
+      <%= f.label :description %>:
+      <%= f.text_field :description %><br />
+
+    <%= f.submit "Create New Task List"%>
+<% end %>
+
+<h1>Task Lists</h1>
+<hr>
+<% @task_lists.each do |task_list| %>
+  <h3><strong>Title:</strong> <%= task_list.title %></h3>
+  <h5><strong>Description:</strong> <%= task_list.description %></h5>
+<% end %>

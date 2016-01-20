@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   resources :users, only: [:new, :create]
-  resources :task_lists, only: [:index]
+  resources :task_lists, only: [:index, :create]
   # root "links#index"
   #
   # get '/login', to: 'sessions#new'
