@@ -1,0 +1,38 @@
+<h2>Add A New Task List</h2>
+<% if flash[:errors] %>
+  <div class="errors">
+    <% flash[:errors].each do |message| %>
+      <%= message %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= form_for :task_list, url: '/task_lists' do |f| %>
+      <%= f.label :title %>:
+      <%= f.text_field :title %><br />
+
+      <%= f.label :description %>:
+      <%= f.text_field :description %><br />
+
+    <%= f.submit "Create New Task List", class: "btn btn-default"%>
+<% end %>
+
+<h1>Task Lists</h1>
+<hr>
+<% if flash[:notice] %>
+  <div class="notice">
+    <% flash[:notice].each do |message| %>
+      <%= message %>
+    <% end %>
+  </div>
+<% end %>
+<% @task_lists.each do |task_list| %>
+  <h3><strong>Title:</strong> <%= task_list.title %></h3>
+  <h5><strong>Description:</strong> <%= task_list.description %></h5>
+  <span class="btn btn-default btn-sm">
+    <%= link_to "Edit Task List", task_list_path(task_list), style: "color:white;"%>
+  </span>
+  <span class="btn btn-default btn-sm">
+    <%= link_to "Delete Task List", task_list_path(task_list), method: "DELETE", style: "color:white;"%>
+  </span>
+<% end %>
