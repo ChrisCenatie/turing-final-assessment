@@ -1,0 +1,19 @@
+<div class="btn btn-default btn-sm active" role="button">
+  <%= link_to "Task Lists", task_lists_path, style: "color:white;" %>
+</div>
+</br>
+</br>
+<h1>Edit Task List</h1>
+<% if flash[:errors] %>
+  <div class="errors">
+    <% flash[:errors].each do |message| %>
+      <%= message %>
+    <% end %>
+  </div>
+<% end %>
+<%= form_for @task_list, method: "PUT" do |f| %>
+  <%= f.label :title %>:
+  <%= f.text_field :title, value: nil, placeholder: @task_list.title %>
+
+  <%= f.submit "Update Task Title", class: "btn btn-default"%>
+<% end %>
