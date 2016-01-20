@@ -8,6 +8,11 @@
 </head>
   <body>
     <div class="container">
+      <% if current_user %>
+        <div class="btn btn-default btn-sm active" role="button">
+          <%= link_to "Sign Out", logout_path, method: :delete, style: "color:white;" %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
   </body>
