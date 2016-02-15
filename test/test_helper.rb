@@ -20,3 +20,18 @@ class ActionDispatch::IntegrationTest
       Capybara.use_default_driver
     end
 end
+
+def create_user
+  User.create(email: "chris@example.com", password: "password")
+end
+
+def create_user_task_list
+  User.first.task_lists << TaskList.create(title: "Testing", description: "Test description")
+end
+
+def sign_user_in
+  visit '/'
+  fill_in "Email", with: "chris@example.com"
+  fill_in "Password", with: "password"
+  click_button "Login"
+end

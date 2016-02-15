@@ -1,0 +1,43 @@
+<div class="btn btn-default btn-sm active" role="button">
+  <%= link_to "Task Lists", task_lists_path, style: "color:white;" %>
+</div>
+</br>
+</br>
+<% if flash[:errors] %>
+  <div class="errors">
+    <% flash[:errors].each do |message| %>
+      <%= message %>
+    <% end %>
+  </div>
+<% end %>
+<%= form_for(@task, url: task_list_tasks_path) do |f| %>
+  <div class="form-inline">
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title %> <br>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :status %>
+      <%= f.select :status, [["incomplete", "incomplete"], ["complete", "complete"]] %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :notes %>
+      <%= f.text_field :notes %> <br>
+    </div>
+
+    <div class="row">
+      <div class="form-group col s6">
+        <%= f.label :start_date %>
+        <%= date_select :task, :start_date %>
+      </div>
+      <div class="form-group col s6">
+        <%= f.label :due_date %>
+        <%= date_select :task, :due_date %>
+      </div>
+    </div>
+
+    <%= f.submit "Create Task", style: "color: white;", class: "btn btn-defatult" %>
+  </div>
+<% end %>
